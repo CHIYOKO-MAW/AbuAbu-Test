@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500">
+  <rect width="1200" height="1500" fill="#f4ede1"/>
+  <rect x="94" y="94" width="1012" height="1312" rx="26" fill="#efe3d2" stroke="#dacdb8" stroke-width="8"/>
+  <rect x="170" y="204" width="860" height="70" fill="#cfb693"/>
+  <rect x="170" y="330" width="860" height="680" fill="#fbf7ef"/>
+  <rect x="230" y="430" width="740" height="22" fill="#e4dccd"/>
+  <rect x="230" y="486" width="690" height="22" fill="#e4dccd"/>
+  <rect x="230" y="542" width="710" height="22" fill="#e4dccd"/>
+  <rect x="230" y="598" width="630" height="22" fill="#e4dccd"/>
+  <rect x="230" y="654" width="734" height="22" fill="#e4dccd"/>
+  <rect x="230" y="710" width="674" height="22" fill="#e4dccd"/>
+  <text x="170" y="1136" fill="#2f2923" font-family="Georgia, serif" font-size="92" font-weight="700">Editorial Room</text>
+  <text x="170" y="1234" fill="#2f2923" font-family="Georgia, serif" font-size="92" font-weight="700">Notes 19</text>
+</svg>

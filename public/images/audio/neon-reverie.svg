@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Neon Reverie cover</title>
+  <desc id="desc">Package artwork inspired by vinyl sleeves and discs for Neon Reverie.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f3ef"/>
+      <stop offset="100%" stop-color="#dad8d3"/>
+    </linearGradient>
+    <radialGradient id="vinyl" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2a2e3a"/>
+      <stop offset="55%" stop-color="#101115"/>
+      <stop offset="100%" stop-color="#030303"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#bg)"/>
+  <ellipse cx="790" cy="540" rx="265" ry="265" fill="url(#vinyl)"/>
+  <ellipse cx="950" cy="556" rx="245" ry="245" fill="url(#vinyl)"/>
+  <circle cx="790" cy="540" r="64" fill="#2d91d9"/>
+  <circle cx="950" cy="556" r="64" fill="#ffffff"/>
+  <circle cx="790" cy="540" r="16" fill="#e7eef7"/>
+  <circle cx="950" cy="556" r="16" fill="#2d91d9"/>
+  <g opacity=".2" stroke="#f3f3f3" fill="none">
+    <circle cx="790" cy="540" r="132"/>
+    <circle cx="790" cy="540" r="183"/>
+    <circle cx="950" cy="556" r="118"/>
+    <circle cx="950" cy="556" r="173"/>
+  </g>
+  <rect x="170" y="302" width="420" height="420" rx="12" fill="#12151c"/>
+  <rect x="170" y="722" width="420" height="120" fill="#d9dce1" opacity=".3"/>
+  <path d="M229 637c46-98 122-197 227-236 75-28 113-13 134 22-63 20-128 67-177 141-36 54-59 117-76 193l-108-120Z" fill="#283246"/>
+  <path d="M331 380c95-100 206-83 263-31-95 4-170 60-228 173-25 50-40 110-49 188l-102-73c22-96 62-187 116-257Z" fill="#f5f5f5" opacity=".95"/>
+  <circle cx="438" cy="474" r="34" fill="#86d6ee"/>
+  <circle cx="438" cy="474" r="13" fill="#162130"/>
+  <text x="222" y="660" fill="#ffffff" font-family="Arial, sans-serif" font-size="96" font-weight="700">ado</text>
+  <text x="222" y="778" fill="#16181e" font-family="Arial, sans-serif" font-size="40" font-weight="700">NEON REVERIE</text>
+</svg>

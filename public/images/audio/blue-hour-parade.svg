@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Blue Hour Parade cover</title>
+  <desc id="desc">Black portrait artwork with white line detail for Blue Hour Parade.</desc>
+  <defs>
+    <linearGradient id="robe" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dce5ee"/>
+      <stop offset="45%" stop-color="#7b8795"/>
+      <stop offset="100%" stop-color="#3f4956"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1200" fill="#050607"/>
+  <circle cx="885" cy="314" r="180" fill="none" stroke="#ffffff" stroke-opacity=".66" stroke-width="5"/>
+  <circle cx="950" cy="696" r="242" fill="none" stroke="#ffffff" stroke-opacity=".34" stroke-width="4"/>
+  <path d="M802 78c-22 68-66 113-126 157" stroke="#ffffff" stroke-opacity=".65" stroke-width="6" fill="none"/>
+  <path d="M892 878c74 24 133 70 183 135" stroke="#ffffff" stroke-opacity=".28" stroke-width="5" fill="none"/>
+  <path d="M182 815c45-157 126-292 236-404 78-79 154-119 226-119 83 0 149 34 222 104-63 12-115 46-158 110-56 82-62 167-64 261-2 70-11 151-56 250H182Z" fill="#ffffff"/>
+  <path d="M258 816c39-119 110-234 196-323 66-68 129-101 193-101 61 0 117 23 182 79-58 14-103 46-135 100-47 78-54 161-58 243-4 69-16 138-52 221H258Z" fill="url(#robe)"/>
+  <circle cx="628" cy="468" r="37" fill="#d3a26f"/>
+  <circle cx="628" cy="468" r="13" fill="#1f2430"/>
+  <path d="M428 770c62-30 118-29 171-10 70 25 110 72 135 146H302c34-56 75-101 126-136Z" fill="#0c1017"/>
+  <text x="788" y="994" fill="#ffffff" font-family="Arial, sans-serif" font-size="38" letter-spacing="10">SAKURAZAKA46</text>
+  <text x="114" y="1068" fill="#ffffff" font-family="Arial, sans-serif" font-size="76" letter-spacing="8">BLUE HOUR PARADE</text>
+</svg>

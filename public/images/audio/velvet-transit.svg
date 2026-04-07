@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Velvet Transit cover</title>
+  <desc id="desc">Train interior group artwork for Velvet Transit.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#23263d"/>
+      <stop offset="100%" stop-color="#97b0df"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#bg)"/>
+  <rect x="88" y="156" width="1024" height="888" rx="22" fill="#12161c"/>
+  <rect x="132" y="198" width="936" height="220" fill="#d5e0ff" opacity=".22"/>
+  <rect x="174" y="242" width="220" height="150" fill="#eff4ff" opacity=".5"/>
+  <rect x="812" y="242" width="194" height="150" fill="#eff4ff" opacity=".5"/>
+  <rect x="436" y="220" width="324" height="110" rx="12" fill="#2b3e86"/>
+  <text x="473" y="292" fill="#ffffff" font-family="Arial, sans-serif" font-size="50" font-weight="700">N46 UMBRELLA</text>
+  <rect x="144" y="430" width="912" height="466" fill="#1b2230"/>
+  <rect x="144" y="862" width="912" height="34" fill="#202733"/>
+  <g>
+    <circle cx="268" cy="770" r="90" fill="#c9d7ff"/>
+    <circle cx="408" cy="642" r="78" fill="#8974c9"/>
+    <circle cx="534" cy="744" r="86" fill="#6d5a9f"/>
+    <circle cx="646" cy="614" r="74" fill="#3f6baa"/>
+    <circle cx="764" cy="740" r="84" fill="#a689ca"/>
+    <circle cx="920" cy="612" r="76" fill="#d1dfff"/>
+  </g>
+  <g fill="#0e1320">
+    <rect x="220" y="640" width="96" height="196" rx="36"/>
+    <rect x="356" y="520" width="104" height="248" rx="40"/>
+    <rect x="480" y="624" width="108" height="222" rx="40"/>
+    <rect x="598" y="506" width="96" height="252" rx="40"/>
+    <rect x="718" y="622" width="108" height="214" rx="40"/>
+    <rect x="878" y="504" width="96" height="246" rx="40"/>
+  </g>
+  <text x="152" y="1080" fill="#eef4ff" font-family="Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="8">VELVET TRANSIT</text>
+</svg>

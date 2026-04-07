@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500">
+  <rect width="1200" height="1500" fill="#f7f2e8"/>
+  <rect x="92" y="92" width="1016" height="1316" rx="26" fill="#fdf9f2" stroke="#ddd1c1" stroke-width="8"/>
+  <path d="M170 330c105-94 268-116 393-71 130 46 249 149 475 132v310c-162-42-298-6-427 69-133 78-297 91-441 47V330Z" fill="#d5c4ac"/>
+  <path d="M170 470c122 63 224 86 328 78 122-10 241-56 540-32v316c-188-53-290-47-421 5-150 59-274 79-447 46V470Z" fill="#c3b39c"/>
+  <text x="166" y="970" fill="#2f2923" font-family="Georgia, serif" font-size="88" font-weight="700">Calm Browsing</text>
+  <text x="166" y="1066" fill="#2f2923" font-family="Georgia, serif" font-size="88" font-weight="700">Patterns</text>
+  <text x="166" y="1238" fill="#675d52" font-family="Arial, sans-serif" font-size="34" letter-spacing="8">SHELF FORM</text>
+</svg>

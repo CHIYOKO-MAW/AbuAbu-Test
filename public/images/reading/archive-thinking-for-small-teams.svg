@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500">
+  <rect width="1200" height="1500" fill="#f7f3ea"/>
+  <rect x="94" y="94" width="1012" height="1312" rx="26" fill="#efe5d7" stroke="#d5c8b7" stroke-width="8"/>
+  <rect x="160" y="170" width="210" height="40" fill="#d2c0a8"/>
+  <text x="160" y="260" fill="#6b5f50" font-family="Arial, sans-serif" font-size="30" letter-spacing="9">ESSAY</text>
+  <path d="M790 250c108 0 180 84 180 190 0 74-33 129-96 198-61 66-109 122-146 193H540c42-116 66-180 92-258 43-126 86-323 158-323Z" fill="#d4c5ad"/>
+  <text x="160" y="520" fill="#322c26" font-family="Georgia, serif" font-size="92" font-weight="700">Archive Thinking</text>
+  <text x="160" y="618" fill="#322c26" font-family="Georgia, serif" font-size="82" font-weight="700">for Small Teams</text>
+  <rect x="160" y="880" width="880" height="14" fill="#cdbda7"/>
+  <rect x="160" y="940" width="700" height="14" fill="#d9d0c4"/>
+  <rect x="160" y="980" width="670" height="14" fill="#d9d0c4"/>
+  <rect x="160" y="1020" width="560" height="14" fill="#d9d0c4"/>
+  <text x="160" y="1264" fill="#5a4d41" font-family="Arial, sans-serif" font-size="34" letter-spacing="8">ABU-ABU ESSAYS</text>
+</svg>

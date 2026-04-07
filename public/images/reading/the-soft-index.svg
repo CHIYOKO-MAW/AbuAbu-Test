@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500">
+  <rect width="1200" height="1500" fill="#f4ede2"/>
+  <rect x="96" y="96" width="1008" height="1308" rx="26" fill="#f9f5ee" stroke="#d8cdbd" stroke-width="8"/>
+  <path d="M868 250c106 63 162 176 162 308 0 173-93 293-262 402-116 75-224 126-377 214l-126-220c133-59 228-102 326-167 149-100 225-180 225-297 0-85-48-152-120-199l172-41Z" fill="#ceb590"/>
+  <text x="170" y="320" fill="#2f2923" font-family="Arial, sans-serif" font-size="30" letter-spacing="10">ESSAY</text>
+  <text x="170" y="650" fill="#2f2923" font-family="Georgia, serif" font-size="104" font-weight="700">The Soft</text>
+  <text x="170" y="760" fill="#2f2923" font-family="Georgia, serif" font-size="104" font-weight="700">Index</text>
+  <text x="170" y="1216" fill="#5d5044" font-family="Arial, sans-serif" font-size="34" letter-spacing="8">PAPER ROOM</text>
+</svg>

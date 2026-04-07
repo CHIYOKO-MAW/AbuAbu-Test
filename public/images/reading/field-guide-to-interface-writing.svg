@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500">
+  <rect width="1200" height="1500" fill="#f6f0e4"/>
+  <rect x="96" y="96" width="1008" height="1308" rx="26" fill="#fbf7ef" stroke="#d7ceb8" stroke-width="8"/>
+  <circle cx="910" cy="340" r="170" fill="#b2bfac"/>
+  <circle cx="820" cy="460" r="90" fill="#6f7e68"/>
+  <text x="160" y="252" fill="#6d6255" font-family="Arial, sans-serif" font-size="30" letter-spacing="10">E-BOOK</text>
+  <text x="160" y="520" fill="#2d2822" font-family="Georgia, serif" font-size="94" font-weight="700">Field Guide</text>
+  <text x="160" y="620" fill="#2d2822" font-family="Georgia, serif" font-size="84" font-weight="700">to Interface</text>
+  <text x="160" y="718" fill="#2d2822" font-family="Georgia, serif" font-size="84" font-weight="700">Writing</text>
+  <rect x="160" y="850" width="880" height="18" fill="#ddd3c3"/>
+  <rect x="160" y="930" width="740" height="16" fill="#d9d0c1"/>
+  <rect x="160" y="970" width="690" height="16" fill="#d9d0c1"/>
+  <rect x="160" y="1010" width="620" height="16" fill="#d9d0c1"/>
+  <text x="160" y="1274" fill="#566553" font-family="Arial, sans-serif" font-size="34" letter-spacing="8">SIGNAL PRESS</text>
+</svg>

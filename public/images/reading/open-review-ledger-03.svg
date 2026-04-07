@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500">
+  <rect width="1200" height="1500" fill="#f6f1e6"/>
+  <rect x="94" y="94" width="1012" height="1312" rx="26" fill="#fbf8f2" stroke="#d9cebe" stroke-width="8"/>
+  <rect x="170" y="190" width="860" height="1080" fill="#f1e8dc"/>
+  <rect x="236" y="266" width="728" height="14" fill="#c6b49c"/>
+  <rect x="236" y="332" width="564" height="14" fill="#d8cdbe"/>
+  <rect x="236" y="388" width="648" height="14" fill="#d8cdbe"/>
+  <rect x="236" y="444" width="608" height="14" fill="#d8cdbe"/>
+  <circle cx="914" cy="332" r="28" fill="#a6b59d"/>
+  <circle cx="914" cy="444" r="28" fill="#cbb89e"/>
+  <circle cx="914" cy="556" r="28" fill="#8f9c88"/>
+  <text x="170" y="1128" fill="#312b24" font-family="Georgia, serif" font-size="88" font-weight="700">Open Review</text>
+  <text x="170" y="1222" fill="#312b24" font-family="Georgia, serif" font-size="88" font-weight="700">Ledger 03</text>
+</svg>

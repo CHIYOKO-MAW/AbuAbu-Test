@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Afterglow Archive cover</title>
+  <desc id="desc">Pink and blue liquid artwork for Afterglow Archive.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d8f5ff"/>
+      <stop offset="50%" stop-color="#84e1ff"/>
+      <stop offset="100%" stop-color="#f781bf"/>
+    </linearGradient>
+    <linearGradient id="coat" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2938"/>
+      <stop offset="100%" stop-color="#0f1320"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#bg)"/>
+  <path d="M0 886c104-91 257-65 386-11 97 41 199 79 315 49 125-31 252-10 499 76v200H0V886Z" fill="#ef4da8" opacity=".86"/>
+  <path d="M60 955c138-65 286-52 429 15 143 67 340 70 711-21v251H0V1012c17-22 33-40 60-57Z" fill="#28a8e0" opacity=".55"/>
+  <path d="M412 262c54-52 109-82 167-82 72 0 125 32 162 84-43 14-85 48-112 108-31 69-33 141-23 216 8 60-2 116-49 172H370c19-42 33-80 43-132 18-96 28-166 16-241-12-76 5-154 38-225 16-34 37-66 65-100Z" fill="url(#coat)"/>
+  <path d="M457 364c44-76 105-123 185-123 57 0 106 21 139 74-56 13-98 43-125 99-29 58-31 129-31 197 0 74-22 138-73 200H394c29-73 45-140 52-246 6-93 7-135 11-201Z" fill="#f8f8fc"/>
+  <circle cx="643" cy="420" r="35" fill="#ffb6d9"/>
+  <circle cx="643" cy="420" r="13" fill="#1d2a3c"/>
+  <text x="86" y="1018" fill="#ff2f93" font-family="Arial, sans-serif" font-size="136" font-weight="700">start over</text>
+  <text x="88" y="1094" fill="#1a3e62" font-family="Arial, sans-serif" font-size="44" letter-spacing="8">AFTERGLOW ARCHIVE</text>
+</svg>
