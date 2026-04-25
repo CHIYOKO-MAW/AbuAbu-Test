@@ -21,9 +21,9 @@
                 <span>Back to audio catalog</span>
             </a>
 
-            <section class="mt-6 grid gap-8 xl:grid-cols-[340px_1fr]">
-                <aside class="xl:sticky xl:top-6 xl:self-start">
-                    <div class="rounded-[32px] border border-white/6 bg-[linear-gradient(180deg,#1d2229_0%,#181c22_100%)] p-5 shadow-[0_20px_70px_rgba(0,0,0,0.14)]">
+            <div class="flex flex-col md:flex-row mt-6">
+                <aside class="w-[260px] md:w-[320px] shrink-0">
+                    <div class="rounded-[32px] border border-white/6 bg-[linear-gradient(180deg,#1d2229_0%,#181c22_100%)] p-5">
                         <x-audio.cover :album="$album" size="hero" />
 
                         <div class="mt-5 rounded-[24px] border border-white/6 bg-[#13181e] p-4">
@@ -53,6 +53,7 @@
                         </div>
                     </div>
                 </aside>
+                <section class="flex-1">
 
                 <section>
                     <div class="rounded-[32px] border border-white/6 bg-[radial-gradient(circle_at_top_left,rgba(108,92,231,0.10),transparent_24%),#20252c] p-7 shadow-[0_22px_80px_rgba(0,0,0,0.14)] sm:p-8">
@@ -221,9 +222,12 @@
                         <x-audio.album-card :album="$related" :lang="$lang" />
                     @endforeach
                 </div>
-            </section>
+</section>
+        </section>
+            </div>
+          </div>
         </div>
-    </main>
+      </main>
 <style>
   @keyframes shift {
     0% { background-position: 0% 50%; }
