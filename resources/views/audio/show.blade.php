@@ -14,7 +14,7 @@
         query=""
     />
 
-    <main class="bg-[radial-gradient(circle_at_top,rgba(61,154,233,0.05),transparent_15%),linear-gradient(180deg,#2c3138_0%,#31363d_100%)]">
+    <main class="bg-[radial-gradient(circle_at_top,rgba(61,154,233,0.05),transparent_15%),linear-gradient(180deg,#2c3138_0%,#31363d_100%)] animate-[shift_120s_linear_infinite]">
         <div class="mx-auto max-w-[1460px] px-4 pb-16 pt-8 sm:px-6 lg:px-8">
             <a href="{{ route('audio.index', ['lang' => $lang]) }}" class="inline-flex items-center gap-2 rounded-full border border-white/8 bg-white/[0.02] px-4 py-2 text-sm text-white/58 transition hover:text-white">
                 <span>&larr;</span>
@@ -63,8 +63,8 @@
 
                         <div class="mt-6 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
                             <div>
-                                <h1 class="font-display text-4xl font-bold tracking-tight text-white sm:text-[3.5rem]">{{ $album['title'] }}</h1>
-                                <div class="mt-3 text-2xl font-light italic text-white/82">{{ $album['artist'] }}</div>
+                                <h1 class="font-display text-4xl font-bold tracking-tight text-white sm:text-[3.5rem] title-float">{{ $album['title'] }}</h1>
+                                <div class="mt-3 text-2xl font-light italic text-white/82 artist-float">{{ $album['artist'] }}</div>
                                 <p class="mt-8 max-w-3xl text-lg leading-8 text-white/80">{{ $album['specs']['audio'] }}</p>
                                 <p class="mt-8 max-w-3xl text-base leading-8 text-white/58">{{ $album['editor_notes'] }}</p>
 
@@ -82,13 +82,13 @@
                                         </span>
                                     @endif
 
-                                    <button 
-                                        type="button"
-                                        onclick="alert('Wishlist: {{ $album['title'] }} - Login to save to wishlist')"
-                                        class="rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-3 text-base font-semibold text-white transition hover:bg-white/[0.06]"
-                                    >
-                                        ♡ Add to Wishlist
-                                    </button>
+                                     <button 
+                                         type="button"
+                                         onclick="alert('Wishlist: {{ $album['title'] }} - Login to save to wishlist')"
+                                         class="rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-3 text-base font-semibold text-white wishlist-btn transition hover:bg-white/[0.06]"
+                                     >
+                                         ♡ Keep This One
+                                     </button>
                                 </div>
                             </div>
 
@@ -224,4 +224,31 @@
             </section>
         </div>
     </main>
+<style>
+  @keyframes shift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+  @keyframes float-title {
+    0%, 100% { transform: translateX(0px) rotate(0deg); }
+    50% { transform: translateX(-1px) rotate(0.15deg); }
+  }
+  @keyframes float-artist {
+    0%, 100% { transform: translateX(0px) rotate(0deg); }
+    50% { transform: translateX(1px) rotate(-0.15deg); }
+  }
+  .title-float {
+    animation: float-title 6s ease-in-out infinite;
+  }
+  .artist-float {
+    animation: float-artist 6s ease-in-out infinite;
+  }
+  .wishlist-btn {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  .wishlist-btn:hover {
+    transform: rotate(-1.5deg) scale(1.015);
+    background-color: rgba(255,255,255,0.06);
+  }
+</style>
 @endsection
