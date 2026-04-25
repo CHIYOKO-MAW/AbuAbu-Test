@@ -15,5 +15,11 @@
     </head>
     <body class="min-h-screen bg-[#f7f2e8] text-[#2b2620] selection:bg-[#b8c7aa] selection:text-[#1f221c]">
         @yield('content')
-    </body>
+    <style>
+  @keyframes shift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+</style>
+</body>
 </html>

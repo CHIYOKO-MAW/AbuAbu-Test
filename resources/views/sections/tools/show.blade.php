@@ -14,7 +14,7 @@
         current-sort="featured"
     />
 
-    <main class="bg-[linear-gradient(180deg,#121512_0%,#0f120f_100%)]">
+    <main class="bg-[linear-gradient(180deg,#121512_0%,#0f120f_100%)] animate-[shift_120s_linear_infinite]">
         <div class="mx-auto max-w-[1460px] px-4 pb-16 pt-8 sm:px-6 lg:px-8">
             <a href="{{ route('tools.index', ['lang' => $lang]) }}" class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] text-[#c9ff4d] transition hover:text-[#e0ff90]">
                 <span>&larr;</span>

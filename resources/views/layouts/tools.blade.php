@@ -15,5 +15,11 @@
     </head>
     <body class="min-h-screen bg-[#121512] text-[#ecf1e8] selection:bg-[#c9ff4d] selection:text-[#11140f]" style="font-family: 'IBM Plex Sans', sans-serif;">
         @yield('content')
-    </body>
+    <style>
+  @keyframes shift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+</style>
+</body>
 </html>

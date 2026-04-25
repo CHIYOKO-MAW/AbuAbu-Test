@@ -13,7 +13,7 @@
         current-sort="latest"
     />
 
-    <main class="bg-[linear-gradient(180deg,#f7f2e8_0%,#f3ede2_100%)]">
+    <main class="bg-[linear-gradient(180deg,#f7f2e8_0%,#f3ede2_100%)] animate-[shift_120s_linear_infinite]">
         <div class="mx-auto max-w-[1460px] px-4 pb-16 pt-8 sm:px-6 lg:px-8">
             <a href="{{ route('reading.index', ['lang' => $lang]) }}" class="inline-flex items-center gap-2 border-b border-[#2b2620] pb-1 text-sm font-semibold uppercase tracking-[0.22em] text-[#2b2620] transition hover:text-[#4f6559]">
                 <span>&larr;</span>
