@@ -32,7 +32,7 @@
                             <div class="mt-2 text-[#eef2ea]">{{ $tool['release_status'] }}</div>
                         </div>
                         <div class="border-l border-[#33402d] pl-4">
-                            <div class="font-mono text-[10px] uppercase tracking-[0.22em] text-[#86927d]">License state</div>
+                            <div class="font-mono text-[10px] uppercase tracking-[0.22em] text-[#86927d]">Access state</div>
                             <div class="mt-2 text-[#eef2ea]">{{ $tool['license_state'] }}</div>
                         </div>
                         <div class="border-l border-[#33402d] pl-4">

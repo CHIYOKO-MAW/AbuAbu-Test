@@ -1,7 +1,6 @@
 @props([
     'brand' => ['name' => config('abuabu.brand.name'), 'tagline' => config('abuabu.brand.tagline')],
     'navigation' => [],
-    'lang' => 'id',
 ])
 
 <header class="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
@@ -17,25 +16,16 @@
                 </span>
             </a>
 
-            <nav class="hidden items-center gap-2 md:flex">
+<nav class="hidden items-center gap-2 md:flex">
                 @foreach ($navigation as $item)
-                    @php
-                        $href = str_starts_with($item['href'], '#')
-                            ? $item['href']
-                            : (str_contains($item['href'], '?') ? $item['href'] . '&lang=' . $lang : $item['href'] . '?lang=' . $lang);
-                    @endphp
                     <a
-                        href="{{ $href }}"
+                        href="{{ $item['href'] }}"
                         class="rounded-full px-4 py-2 text-sm font-medium text-[#A0A3BD] transition hover:bg-white/[0.06] hover:text-white"
                     >
-                        {{ \App\Support\AbuAbu::text($item['label'], $lang) }}
+                        {{ $item['label'] }}
                     </a>
                 @endforeach
             </nav>
-
-            <div class="hidden items-center gap-3 md:flex">
-                <x-language-switcher :lang="$lang" />
-            </div>
 
             <details class="relative md:hidden">
                 <summary class="list-none rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/[0.08]">
@@ -44,21 +34,13 @@
                 <div class="absolute right-0 mt-3 w-56 rounded-3xl border border-white/10 bg-[#11141B] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
                     <div class="space-y-1">
                         @foreach ($navigation as $item)
-                            @php
-                                $href = str_starts_with($item['href'], '#')
-                                    ? $item['href']
-                                    : (str_contains($item['href'], '?') ? $item['href'] . '&lang=' . $lang : $item['href'] . '?lang=' . $lang);
-                            @endphp
                             <a
-                                href="{{ $href }}"
+                                href="{{ $item['href'] }}"
                                 class="block rounded-2xl px-4 py-3 text-sm font-medium text-[#EAEAF0] transition hover:bg-white/[0.06]"
                             >
-                                {{ \App\Support\AbuAbu::text($item['label'], $lang) }}
+                                {{ $item['label'] }}
                             </a>
                         @endforeach
-                    </div>
-                    <div class="mt-3 flex justify-start">
-                        <x-language-switcher :lang="$lang" />
                     </div>
                 </div>
             </details>

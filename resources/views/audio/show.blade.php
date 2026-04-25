@@ -71,10 +71,10 @@
                                 <div class="mt-8 flex flex-wrap gap-3">
                                     @if ($album['download']['available'])
                                         <a
-                                            href="{{ route('audio.download', ['artist' => $album['artist_slug'], 'album' => $album['slug'], 'lang' => $lang]) }}"
+                                            href="{{ route('audio.download', ['artist' => $album['artist_slug'], 'album' => $album['slug']]) }}"
                                             class="rounded-2xl bg-[#eef1f6] px-6 py-3 text-base font-semibold text-[#313744] transition hover:bg-white"
                                         >
-                                            {{ $album['download']['label'] }}
+                                            {{ $album['download']['label'] }} ↓
                                         </a>
                                     @else
                                         <span class="rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-3 text-base font-semibold text-white/42">
@@ -82,8 +82,12 @@
                                         </span>
                                     @endif
 
-                                    <button class="rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-3 text-base font-semibold text-white transition hover:bg-white/[0.06]">
-                                        Add to Wishlist
+                                    <button 
+                                        type="button"
+                                        onclick="alert('Wishlist: {{ $album['title'] }} - Login to save to wishlist')"
+                                        class="rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-3 text-base font-semibold text-white transition hover:bg-white/[0.06]"
+                                    >
+                                        ♡ Add to Wishlist
                                     </button>
                                 </div>
                             </div>
@@ -153,9 +157,15 @@
                             @foreach ($album['tracks'] as $track)
                                 <div class="grid gap-4 border-b border-white/6 px-5 py-5 last:border-b-0 md:grid-cols-[88px_56px_1fr_88px] md:items-center">
                                     <div class="text-2xl font-light text-white/86">{{ $track['number'] }}</div>
-                                    <div class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-xs text-[#7dbfff]">
+                                    @if(!empty($track['preview']))
+                                    <a href="{{ $track['preview'] }}" target="_blank" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-xs text-[#7dbfff] hover:bg-white/[0.08] transition">
+                                        ▶
+                                    </a>
+                                    @else
+                                    <div class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-xs text-white/20">
                                         ▶
                                     </div>
+                                    @endif
                                     <div>
                                         <div class="text-[1.04rem] text-white">{{ $track['title'] }}</div>
                                         <div class="mt-1 text-sm text-white/50">{{ $track['artist'] }}</div>
@@ -206,7 +216,7 @@
                     </a>
                 </div>
 
-                <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+                <div class="mt-8 grid gap-4 sm:gap-5 md:gap-6 grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                     @foreach ($relatedAlbums as $related)
                         <x-audio.album-card :album="$related" :lang="$lang" />
                     @endforeach

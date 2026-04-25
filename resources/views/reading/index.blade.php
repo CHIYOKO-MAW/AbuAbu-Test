@@ -170,9 +170,12 @@
                         </div>
 
                         @if ($items->isEmpty())
-                            <div class="mt-8 border border-[#ddd1c1] bg-[#fbf7ef] px-6 py-10 text-center text-[#7a6f62]">
-                                No reading items matched the current filters.
-                            </div>
+                            <x-ui.empty-state
+                                class="mt-8"
+                                tone="paper"
+                                title="No reading items matched"
+                                copy="Try another title, author, topic, type, or sort order."
+                            />
                         @else
                             <div class="mt-6 overflow-hidden border border-[#ddd1c1] bg-[#fbf7ef]">
                                 <div class="hidden grid-cols-[140px_1.4fr_0.9fr_140px] gap-4 border-b border-[#ddd1c1] px-5 py-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#8f8373] md:grid">

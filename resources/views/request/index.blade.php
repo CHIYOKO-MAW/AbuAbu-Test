@@ -96,36 +96,52 @@
                         </div>
                     </div>
 
-                    <div class="mt-6 grid gap-5">
-                        @foreach ($store['form_fields'] as $field)
+                    <form method="POST" action="{{ route('request.submit') }}" class="mt-6">
+                        @csrf
+
+                        @if(session('success'))
+                            <div class="mb-6 rounded-3xl border border-[#4a7c59] bg-[#1a2e1c] p-4 text-sm text-[#9fdbb3]">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
+                        <div class="grid gap-5">
                             <div class="rounded-3xl border border-[#34271d] bg-[#110d0a] p-4">
-                                <div class="font-mono text-[10px] uppercase tracking-[0.22em] text-[#b39b8a]">{{ $field['label'] }}</div>
-                                <div class="mt-3 rounded-2xl border border-[#433224] bg-[#18120e] px-4 py-4 text-sm text-[#8f7b6c]">
-                                    {{ $field['placeholder'] }}
-                                </div>
+                                <div class="font-mono text-[10px] uppercase tracking-[0.22em] text-[#b39b8a]">Title</div>
+                                <input type="text" name="title" required placeholder="What do you want to request?" 
+                                    class="mt-3 w-full rounded-2xl border border-[#433224] bg-[#18120e] px-4 py-4 text-sm text-[#f6efe6] placeholder-[#8f7b6c] focus:border-[#f6b26b] focus:outline-none">
                             </div>
-                        @endforeach
-                    </div>
 
-                    <div class="mt-6 grid gap-4 lg:grid-cols-[1fr_1fr]">
-                        <div class="rounded-3xl border border-[#34271d] bg-[#110d0a] p-4">
-                            <div class="font-mono text-[10px] uppercase tracking-[0.22em] text-[#b39b8a]">Request types</div>
-                            <div class="mt-4 flex flex-wrap gap-2">
-                                @foreach ($store['request_types'] as $type)
-                                    <span class="rounded-full border border-[#463426] px-3 py-1 text-xs text-[#d2bcad]">{{ $type }}</span>
-                                @endforeach
+                            <div class="rounded-3xl border border-[#34271d] bg-[#110d0a] p-4">
+                                <div class="font-mono text-[10px] uppercase tracking-[0.22em] text-[#b39b8a]">Category</div>
+                                <select name="category" required class="mt-3 w-full rounded-2xl border border-[#433224] bg-[#18120e] px-4 py-4 text-sm text-[#f6efe6] focus:border-[#f6b26b] focus:outline-none">
+                                    <option value="" class="text-[#8f7b6c]">Select a category</option>
+                                    <option value="ebooks" class="text-[#f6efe6]">Ebooks / Journals</option>
+                                    <option value="music" class="text-[#f6efe6]">Lossless Music</option>
+                                    <option value="software" class="text-[#f6efe6]">Software / Tools</option>
+                                    <option value="other" class="text-[#f6efe6]">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="rounded-3xl border border-[#34271d] bg-[#110d0a] p-4">
+                                <div class="font-mono text-[10px] uppercase tracking-[0.22em] text-[#b39b8a]">Source Context</div>
+                                <input type="text" name="source_context" placeholder="Link or reference (optional)" 
+                                    class="mt-3 w-full rounded-2xl border border-[#433224] bg-[#18120e] px-4 py-4 text-sm text-[#f6efe6] placeholder-[#8f7b6c] focus:border-[#f6b26b] focus:outline-none">
+                            </div>
+
+                            <div class="rounded-3xl border border-[#34271d] bg-[#110d0a] p-4">
+                                <div class="font-mono text-[10px] uppercase tracking-[0.22em] text-[#b39b8a]">Notes</div>
+                                <textarea name="notes" rows="3" placeholder="Additional details (optional)" 
+                                    class="mt-3 w-full rounded-2xl border border-[#433224] bg-[#18120e] px-4 py-4 text-sm text-[#f6efe6] placeholder-[#8f7b6c] focus:border-[#f6b26b] focus:outline-none"></textarea>
                             </div>
                         </div>
 
-                        <div class="rounded-3xl border border-[#34271d] bg-[#110d0a] p-4">
-                            <div class="font-mono text-[10px] uppercase tracking-[0.22em] text-[#b39b8a]">Queue handoff</div>
-                            <div class="mt-4 space-y-3 text-sm text-[#d2bcad]">
-                                <div>Draft saved to intake lane</div>
-                                <div>Review notes attached before publish</div>
-                                <div>Final item mapped to reading, audio, or tools</div>
-                            </div>
+                        <div class="mt-6">
+                            <button type="submit" class="rounded-2xl bg-[#f6b26b] px-6 py-3 text-sm font-semibold text-[#1b140d] hover:bg-[#e5a255]">
+                                Submit Request
+                            </button>
                         </div>
-                    </div>
+                    </form>
                 </section>
             </section>
         </div>

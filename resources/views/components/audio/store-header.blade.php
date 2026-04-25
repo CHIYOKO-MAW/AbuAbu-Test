@@ -18,7 +18,7 @@
                             Audio storefront
                         </span>
                         <span class="rounded-full border border-white/8 px-3 py-1">
-                            Licensed catalog
+                            Release catalog
                         </span>
                     </div>
 
@@ -41,15 +41,13 @@
                             @foreach ($store['utility_nav'] as $item)
                                 <a href="{{ $item['href'] }}" class="transition hover:text-white">{{ $item['label'] }}</a>
                             @endforeach
-                            <x-language-switcher :lang="$lang" />
                         </div>
                     </div>
                 </div>
 
                 <div class="w-full xl:max-w-[430px]">
                     <form method="GET" action="{{ route('audio.index') }}" class="rounded-[24px] border border-white/8 bg-[#101318] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-                        <input type="hidden" name="lang" value="{{ $lang }}">
-                        @if ($currentGenre !== 'Featured')
+                        @if (strtolower($currentGenre) !== 'featured')
                             <input type="hidden" name="genre" value="{{ $currentGenre }}">
                         @endif
                         @if ($currentType !== 'all')
@@ -75,9 +73,9 @@
                             </button>
                         </div>
                         <div class="mt-3 flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.24em] text-white/38">
-                            <span class="rounded-full border border-white/8 px-3 py-1">Fast scan</span>
-                            <span class="rounded-full border border-white/8 px-3 py-1">Artist index</span>
-                            <span class="rounded-full border border-white/8 px-3 py-1">Genre shelves</span>
+                            <a href="{{ route('audio.artists') }}" class="rounded-full border border-white/8 px-3 py-1 hover:bg-white/10 hover:text-white transition">Artist index</a>
+                            <a href="{{ route('audio.new') }}" class="rounded-full border border-white/8 px-3 py-1 hover:bg-white/10 hover:text-white transition">New releases</a>
+                            <a href="{{ route('audio.index') }}" class="rounded-full border border-white/8 px-3 py-1 hover:bg-white/10 hover:text-white transition">All albums</a>
                         </div>
                     </form>
                 </div>
@@ -89,8 +87,8 @@
                     <div class="flex flex-wrap gap-2.5">
                         @foreach ($store['browse_tabs'] as $tab)
                             <a
-                                href="{{ route('audio.index', array_filter(['lang' => $lang, 'type' => $tab['value'] !== 'all' ? $tab['value'] : null, 'genre' => $currentGenre !== 'Featured' ? $currentGenre : null, 'format' => $currentFormat !== 'all' ? $currentFormat : null, 'q' => $query !== '' ? $query : null])) }}"
-                                class="rounded-full border px-4 py-2 text-sm transition {{ $currentType === $tab['value'] ? 'border-[#6C5CE7]/40 bg-[#6C5CE7]/14 text-[#d5cfff]' : 'border-white/8 bg-white/[0.02] text-white/60 hover:text-white' }}"
+                                href="{{ route('audio.index', array_filter(['lang' => $lang, 'type' => $tab['value'] !== 'all' ? $tab['value'] : null, 'genre' => strtolower($currentGenre) !== 'featured' ? $currentGenre : null, 'format' => $currentFormat !== 'all' ? $currentFormat : null, 'q' => $query !== '' ? $query : null])) }}"
+                                class="rounded-full border px-4 py-2 text-sm transition {{ strtolower($currentType) === strtolower($tab['value']) ? 'border-[#6C5CE7]/40 bg-[#6C5CE7]/14 text-[#d5cfff]' : 'border-white/8 bg-white/[0.02] text-white/60 hover:text-white' }}"
                             >
                                 {{ $tab['label'] }}
                             </a>
@@ -103,8 +101,8 @@
                     <div class="flex flex-wrap gap-2.5">
                         @foreach ($store['format_tabs'] as $tab)
                             <a
-                                href="{{ route('audio.index', array_filter(['lang' => $lang, 'format' => $tab['value'] !== 'all' ? $tab['value'] : null, 'genre' => $currentGenre !== 'Featured' ? $currentGenre : null, 'type' => $currentType !== 'all' ? $currentType : null, 'q' => $query !== '' ? $query : null])) }}"
-                                class="rounded-full border px-4 py-2 text-sm transition {{ $currentFormat === $tab['value'] ? 'border-[#00B894]/35 bg-[#00B894]/12 text-[#96ead8]' : 'border-white/8 bg-white/[0.02] text-white/60 hover:text-white' }}"
+                                href="{{ route('audio.index', array_filter(['lang' => $lang, 'format' => $tab['value'] !== 'all' ? $tab['value'] : null, 'genre' => strtolower($currentGenre) !== 'featured' ? $currentGenre : null, 'type' => $currentType !== 'all' ? $currentType : null, 'q' => $query !== '' ? $query : null])) }}"
+                                class="rounded-full border px-4 py-2 text-sm transition {{ strtolower($currentFormat) === strtolower($tab['value']) ? 'border-[#00B894]/35 bg-[#00B894]/12 text-[#96ead8]' : 'border-white/8 bg-white/[0.02] text-white/60 hover:text-white' }}"
                             >
                                 {{ $tab['label'] }}
                             </a>
@@ -116,15 +114,43 @@
             <div class="mt-3 rounded-[24px] border border-white/8 bg-[#14181e] p-4">
                 <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
                     <div class="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/38">Genre navigator</div>
-                    <div class="flex flex-wrap gap-2">
-                        @foreach ($genres as $genre)
+                    <div class="flex flex-wrap gap-2 items-center">
+                        @php
+                            $visibleGenres = array_slice($genres, 0, 5);
+                            $hiddenGenres = array_slice($genres, 5);
+                        @endphp
+                        
+                        @foreach ($visibleGenres as $genre)
                             <a
-                                href="{{ route('audio.index', array_filter(['lang' => $lang, 'genre' => $genre !== 'Featured' ? $genre : null, 'type' => $currentType !== 'all' ? $currentType : null, 'format' => $currentFormat !== 'all' ? $currentFormat : null, 'q' => $query !== '' ? $query : null])) }}"
-                                class="rounded-full px-3 py-1.5 text-sm transition {{ $currentGenre === $genre ? 'bg-[#FDCB6E]/14 text-[#f2d797]' : 'text-white/58 hover:bg-white/[0.04] hover:text-white' }}"
+                                href="{{ route('audio.index', array_filter(['lang' => $lang, 'genre' => strtolower($genre) !== 'featured' ? $genre : null, 'type' => $currentType !== 'all' ? $currentType : null, 'format' => $currentFormat !== 'all' ? $currentFormat : null, 'q' => $query !== '' ? $query : null])) }}"
+                                class="rounded-full px-3 py-1.5 text-sm transition {{ strtolower($currentGenre) === strtolower($genre) ? 'bg-[#FDCB6E]/14 text-[#f2d797]' : 'text-white/58 hover:bg-white/[0.04] hover:text-white' }}"
                             >
                                 {{ $genre }}
                             </a>
                         @endforeach
+                        
+                        @if(count($hiddenGenres) > 0)
+                            <button 
+                                onclick="document.getElementById('genre-dropdown').classList.toggle('hidden')"
+                                class="rounded-full px-3 py-1.5 text-sm border border-white/8 text-white/58 hover:bg-white/[0.04] hover:text-white transition cursor-pointer"
+                            >
+                                +{{ count($hiddenGenres) }} more
+                            </button>
+                            <div id="genre-dropdown" class="hidden absolute right-0 top-full mt-2 z-50">
+                                <div class="rounded-2xl border border-white/8 bg-[#1a1f26] p-3 shadow-xl">
+                                    <div class="flex flex-wrap gap-2 max-w-[400px]">
+                                        @foreach ($hiddenGenres as $genre)
+                                            <a
+                                                href="{{ route('audio.index', array_filter(['lang' => $lang, 'genre' => strtolower($genre) !== 'featured' ? $genre : null, 'type' => $currentType !== 'all' ? $currentType : null, 'format' => $currentFormat !== 'all' ? $currentFormat : null, 'q' => $query !== '' ? $query : null])) }}"
+                                                class="rounded-full px-3 py-1.5 text-sm transition {{ strtolower($currentGenre) === strtolower($genre) ? 'bg-[#FDCB6E]/14 text-[#f2d797]' : 'text-white/58 hover:bg-white/[0.04] hover:text-white' }}"
+                                            >
+                                                {{ $genre }}
+                                            </a>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

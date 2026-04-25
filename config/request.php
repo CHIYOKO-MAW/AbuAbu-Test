@@ -28,7 +28,7 @@ return [
     'steps' => [
         [
             'title' => 'Tulis kebutuhan',
-            'copy' => 'Sebutkan item, konteks legal atau authorized, dan shelf yang paling cocok.',
+            'copy' => 'Sebutkan item, sumber awal, dan shelf yang paling cocok.',
         ],
         [
             'title' => 'Masuk review',
@@ -59,7 +59,7 @@ return [
     ],
 
     'rules' => [
-        'Request harus punya konteks legal, authorized, atau setidaknya jelas status kepemilikannya.',
+        'Request harus punya sumber awal, konteks file, atau catatan asal yang bisa dibaca.',
         'Item baru nanti harus bisa dipetakan ke reading, audio, atau tools tanpa bikin taxonomy berantakan.',
         'Metadata dasar seperti nama item, jenis file, platform, dan catatan instalasi harus bisa dibaca cepat.',
         'Queue dibuat transparan supaya nanti mudah dipindah ke backend atau workflow admin.',
@@ -77,7 +77,7 @@ return [
     'form_fields' => [
         ['label' => 'Request title', 'placeholder' => 'Contoh: Calm Browsing Patterns EPUB / Glass Harbor VR update'],
         ['label' => 'Category', 'placeholder' => 'Reading, Audio, Tools, atau Queue cleanup'],
-        ['label' => 'Rights / source context', 'placeholder' => 'Tulis singkat kenapa item ini legal, authorized, atau aman untuk dimasukkan'],
+        ['label' => 'Source context', 'placeholder' => 'Tulis singkat asal item, format, dan catatan yang perlu dicek'],
         ['label' => 'Notes', 'placeholder' => 'Catatan tambahan: format file, platform, mirror, metadata, atau hal yang perlu dicek'],
     ],
 

@@ -10,6 +10,13 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
     --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-abu-void: #0f1115;
+    --color-abu-ink: #eaeaf0;
+    --color-abu-muted: #a0a3bd;
+    --color-abu-surface: #161a22;
+    --color-abu-violet: #6c5ce7;
+    --color-abu-teal: #00b894;
+    --color-abu-gold: #fdcb6e;
 }
 
 @layer base {
@@ -29,5 +36,39 @@
     ::selection {
         background: #6c5ce7;
         color: #ffffff;
+    }
+
+    a,
+    button,
+    input,
+    select,
+    textarea {
+        outline-color: transparent;
+    }
+}
+
+@layer components {
+    .aa-focus {
+        @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FDCB6E]/80;
+    }
+
+    .aa-home-shell {
+        @apply border border-[#23262d] bg-[#0d0f13]/96 shadow-[0_30px_80px_rgba(0,0,0,0.45)] backdrop-blur-sm;
+    }
+
+    .aa-home-panel {
+        @apply border border-[#22262d] bg-[#0d1014] shadow-[0_24px_90px_rgba(0,0,0,0.26)];
+    }
+
+    .aa-home-kicker {
+        @apply text-[11px] font-semibold uppercase tracking-[0.28em] text-[#98a0b5];
+    }
+
+    .aa-home-card {
+        @apply border border-[#20242c] bg-[#090c10];
+    }
+
+    .aa-home-action {
+        @apply inline-flex items-center justify-center border px-6 py-3 text-sm font-semibold transition hover:-translate-y-0.5;
     }
 }

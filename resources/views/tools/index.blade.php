@@ -46,7 +46,7 @@
                     <div class="font-mono text-[11px] uppercase tracking-[0.3em] text-[#9aa68f]">Activation & recovery</div>
                     <h2 class="mt-3 text-3xl font-semibold text-[#eef2ea]">Help desk rail</h2>
                     <p class="mt-4 text-sm leading-7 text-[#aeb7a8]">
-                        Tools stays focused on legal downloads, while this side rail keeps recovery notes close for activation errors, installer failures, and account resets.
+                        Tools keeps downloads and recovery notes separated, so activation errors, installer failures, and account resets stay easy to scan.
                     </p>
 
                     <div class="mt-6 space-y-4">
@@ -63,7 +63,7 @@
                         <div class="font-mono text-[11px] uppercase tracking-[0.3em] text-[#95a08a]">Games archive</div>
                         <h2 class="mt-3 text-3xl font-semibold text-[#eef2ea]">Release-style game entries</h2>
                         <p class="mt-2 max-w-3xl text-sm leading-7 text-[#aab3a3]">
-                            A denser release layout for legal game archives, demos, and DRM-free builds, with system requirements, archive notes, and cleaner setup information.
+                            A denser release layout for game archives, demos, and DRM-free builds, with system requirements, archive notes, and cleaner setup information.
                         </p>
                     </div>
                     <a href="{{ route('tools.index', ['lang' => $lang, 'category' => 'games']) }}" class="font-mono text-xs uppercase tracking-[0.22em] text-[#c9ff4d] transition hover:text-[#e0ff90]">
@@ -125,9 +125,12 @@
                     </div>
 
                     @if ($tools->isEmpty())
-                        <div class="mt-6 rounded-3xl border border-[#2d3728] bg-[#111510] px-6 py-10 text-center text-[#9aa48f]">
-                            No tool packages matched the current filters.
-                        </div>
+                        <x-ui.empty-state
+                            class="mt-6"
+                            tone="tools"
+                            title="No packages matched"
+                            copy="Try another package name, vendor, OS, category, or tag."
+                        />
                     @else
                         <div class="mt-6 overflow-hidden rounded-[1.5rem] border border-[#2d3728] bg-[#101410]">
                             <div class="hidden grid-cols-[110px_1.5fr_0.95fr_150px] gap-4 border-b border-[#253021] px-5 py-4 font-mono text-[11px] uppercase tracking-[0.26em] text-[#86927d] md:grid">

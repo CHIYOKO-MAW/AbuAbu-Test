@@ -4,5 +4,5 @@
 @section('description', config('abuabu.brand.description'))
 
 @section('content')
-    @include('pages.home')
+    @include('home.index')
 @endsection

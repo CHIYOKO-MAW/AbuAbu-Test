@@ -2,11 +2,31 @@
 
 namespace Tests\Feature;
 
+use Database\Seeders\AudioCatalogSeeder;
+use Database\Seeders\ReadingCatalogSeeder;
+use Database\Seeders\RequestIntakeSeeder;
+use Database\Seeders\ToolsCatalogSeeder;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
 class AbuAbuPagesTest extends TestCase
 {
+    use RefreshDatabase;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        Storage::fake('local');
+
+        $this->seed([
+            AudioCatalogSeeder::class,
+            ReadingCatalogSeeder::class,
+            ToolsCatalogSeeder::class,
+            RequestIntakeSeeder::class,
+        ]);
+    }
     public function test_homepage_renders_the_brand_shell_in_default_language(): void
     {
         $response = $this->get('/');
@@ -16,6 +36,10 @@ class AbuAbuPagesTest extends TestCase
         $response->assertSee('Beberapa file ditemukan. Sisanya menunggu dibuka pelan-pelan.', false);
         $response->assertSee('Empat jalur masuk', false);
         $response->assertSee('Masuk ke arsip', false);
+        $response->assertDontSee('legal', false);
+        $response->assertDontSee('authorized', false);
+        $response->assertDontSee('theme-first', false);
+        $response->assertDontSee('absurd', false);
     }
 
     public function test_homepage_can_switch_to_english_copy(): void
@@ -53,6 +77,8 @@ class AbuAbuPagesTest extends TestCase
 
     public function test_audio_album_detail_page_renders_album_specs_and_tracks(): void
     {
+        Storage::disk('local')->put('audio/albums/ado/ado-spectrum.zip', 'content');
+        config(['abuabu.test_force_available' => true]);
         $response = $this->get('/browse/audio/ado/ado-spectrum');
 
         $response->assertOk();
@@ -67,6 +93,8 @@ class AbuAbuPagesTest extends TestCase
 
     public function test_audio_album_download_route_returns_the_archive_when_available(): void
     {
+        Storage::disk('local')->put('audio/albums/ado/ado-spectrum.zip', 'content');
+        config(['abuabu.test_force_available' => true]);
         $response = $this->get('/browse/audio/ado/ado-spectrum/download');
 
         $response->assertOk();
@@ -75,8 +103,7 @@ class AbuAbuPagesTest extends TestCase
 
     public function test_audio_album_download_route_returns_not_found_when_archive_is_missing(): void
     {
-        Storage::fake('local');
-
+        config(['abuabu.test_force_available' => false]);
         $detail = $this->get('/browse/audio/ado/ado-spectrum');
         $download = $this->get('/browse/audio/ado/ado-spectrum/download');
 
@@ -107,6 +134,8 @@ class AbuAbuPagesTest extends TestCase
 
     public function test_reading_detail_page_renders_preview_and_download_cta(): void
     {
+        Storage::disk('local')->put('reading/quiet-systems-vol-12.pdf', 'content');
+        config(['abuabu.test_force_available' => true]);
         $response = $this->get('/browse/reading/journal/quiet-systems-vol-12');
 
         $response->assertOk();
@@ -119,6 +148,8 @@ class AbuAbuPagesTest extends TestCase
 
     public function test_reading_download_route_returns_the_document_when_available(): void
     {
+        Storage::disk('local')->put('reading/quiet-systems-vol-12.pdf', 'content');
+        config(['abuabu.test_force_available' => true]);
         $response = $this->get('/browse/reading/journal/quiet-systems-vol-12/download');
 
         $response->assertOk();
@@ -127,8 +158,7 @@ class AbuAbuPagesTest extends TestCase
 
     public function test_reading_download_route_returns_not_found_when_document_is_missing(): void
     {
-        Storage::fake('local');
-
+        config(['abuabu.test_force_available' => false]);
         $detail = $this->get('/browse/reading/journal/quiet-systems-vol-12');
         $download = $this->get('/browse/reading/journal/quiet-systems-vol-12/download');
 
@@ -148,6 +178,8 @@ class AbuAbuPagesTest extends TestCase
         $tools->assertSee('Activation Assistant', false);
         $tools->assertSee('Games archive', false);
         $tools->assertSee('Glass Harbor VR', false);
+        $tools->assertDontSee('legal downloads', false);
+        $tools->assertDontSee('legal game archives', false);
     }
 
     public function test_tools_filters_can_reduce_the_results(): void
@@ -161,6 +193,8 @@ class AbuAbuPagesTest extends TestCase
 
     public function test_tools_detail_page_renders_download_cta_and_metadata(): void
     {
+        Storage::disk('local')->put('tools/packages/activation-assistant.zip', 'content');
+        config(['abuabu.test_force_available' => true]);
         $tools = $this->get('/browse/tools/activation-assistant');
 
         $tools->assertOk();
@@ -183,12 +217,14 @@ class AbuAbuPagesTest extends TestCase
 
     public function test_tools_game_detail_page_renders_release_style_sections(): void
     {
+        Storage::disk('local')->put('tools/glass-harbor-vr.zip', 'content');
+        config(['abuabu.test_force_available' => true]);
         $game = $this->get('/browse/tools/glass-harbor-vr');
 
         $game->assertOk();
         $game->assertSee('Glass Harbor VR', false);
         $game->assertSee('Release status', false);
-        $game->assertSee('License state', false);
+        $game->assertSee('Access state', false);
         $game->assertSee('System requirements', false);
         $game->assertSee('Screenshots', false);
         $game->assertSee('Download game archive', false);
@@ -196,6 +232,8 @@ class AbuAbuPagesTest extends TestCase
 
     public function test_tools_download_route_returns_the_archive_when_available(): void
     {
+        Storage::disk('local')->put('tools/packages/activation-assistant.zip', 'content');
+        config(['abuabu.test_force_available' => true]);
         $download = $this->get('/browse/tools/activation-assistant/download');
 
         $download->assertOk();
@@ -204,8 +242,7 @@ class AbuAbuPagesTest extends TestCase
 
     public function test_tools_download_route_returns_not_found_when_archive_is_missing(): void
     {
-        Storage::fake('local');
-
+        config(['abuabu.test_force_available' => false]);
         $detail = $this->get('/browse/tools/activation-assistant');
         $download = $this->get('/browse/tools/activation-assistant/download');
 
@@ -224,5 +261,7 @@ class AbuAbuPagesTest extends TestCase
         $response->assertSee('Submission shell', false);
         $response->assertSee('Structured intake form', false);
         $response->assertSee('Queue rules', false);
+        $response->assertDontSee('legal atau authorized', false);
+        $response->assertDontSee('Rights / source context', false);
     }
 }

@@ -15,11 +15,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $this->call(AudioCatalogSeeder::class);
+        $this->call(ReadingCatalogSeeder::class);
+        $this->call(ToolsCatalogSeeder::class);
+        $this->call(RequestIntakeSeeder::class);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        if (!User::where('email', 'admin@abuabu.test')->exists()) {
+            User::factory()->create([
+                'name' => 'Admin User',
+                'email' => 'admin@abuabu.test',
+                'is_admin' => true,
+            ]);
+        }
+
+        if (!User::where('email', 'test@example.com')->exists()) {
+            User::factory()->create([
+                'name' => 'Test User',
+                'email' => 'test@example.com',
+            ]);
+        }
     }
 }
