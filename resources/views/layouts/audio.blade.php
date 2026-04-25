@@ -35,5 +35,11 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
             </svg>
         </button>
-    </body>
+    <style>
+  @keyframes shift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+</style>
+</body>
 </html>
